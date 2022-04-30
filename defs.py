@@ -18,9 +18,11 @@ def name():
 # Шифратор (Энкриптор)
 def encrypt():
     operation = 'Encrypt'
+    name()
     print('Do you want to change encrypt keys?')
     print('1 No (default)')
     print('2 Yes (possible errors)')
+    print('')
     change_keys = int(input())
     if change_keys == 1:
         crypt_key1 = 9 #Переменная шифра 1
@@ -39,6 +41,7 @@ def encrypt():
         crypt_key5_show = key
         pref_show = key
     elif change_keys == 2:
+        name()
         crypt_key1 = input('Key 1 (only the number): ') #Переменная шифра 1
         crypt_key2 = input('Key 2 (only the number): ') #Переменная шифра 2
         crypt_key3 = input('Key 3 (only the number): ') #Переменная шифра 3
@@ -53,7 +56,9 @@ def encrypt():
         crypt_key3_show = crypt_key3
         crypt_key4_show = crypt_key4
         crypt_key5_show = crypt_key5
+    name()
     print('What do you want to encrypt?')
+    print('')
     text = input()
     how_long_text = int(len(text))
     result_cesar = ''
@@ -85,16 +90,22 @@ def encrypt():
     message_bytes = message.encode('ascii')
     base64_bytes = base64.b64encode(message_bytes)
     base64_message3 = base64_bytes.decode('ascii')
-    print('Very hard, but long encryption:')
-    print(hard+base64_message3)
+    name()
+    print('')
     print('Hard and short encryption:')
     print(medium+base64_message2)
+    print('')
+    print('Very hard, but long encryption:')
+    print(hard+base64_message3)
 
 # Шифратор (Энкриптор)
 def decrypt():
+    name()
+    print('')
     print('Do you want to change decrypt keys?')
     print('1 No (default)')
     print('2 Yes (possible errors)')
+    print('')
     change_keys = int(input())
     if change_keys == 1:
         crypt_key1 = 9 #Переменная шифра 1
@@ -113,6 +124,8 @@ def decrypt():
         crypt_key5_show = key
         pref_show = key
     elif change_keys == 2:
+        name()
+        print('')
         crypt_key1 = int(input('Key 1 (only the number): ')) #Переменная шифра 1
         crypt_key2 = int(input('Key 2 (only the number): ')) #Переменная шифра 2
         crypt_key3 = int(input('Key 3 (only the number): ')) #Переменная шифра 3
@@ -127,7 +140,9 @@ def decrypt():
         crypt_key3_show = crypt_key3
         crypt_key4_show = crypt_key4
         crypt_key5_show = crypt_key5
+    name()
     print('What do you want to decrypt?')
+    print('')
     text = input()
     how_long_text = int(len(text))
     space = ' '
@@ -181,7 +196,10 @@ def decrypt():
                     result_fix = result_split[i]
                     result_preend = chr(int(result_fix))
                     result2_end += result_preend
-                print(result2_end)
+                name()
+                print('')
+                print('Decryption result:', result2_end)
+                print('')
                 sys.exit()
     # Сложный шифр
     if text[0]==hard[0]:
@@ -240,5 +258,8 @@ def decrypt():
                     result_fix = result_split[i]
                     result_preend = chr(int(result_fix))
                     result2_end += result_preend
-                print(result2_end)
+                name()
+                print('')
+                print('Decryption result:', result2_end)
+                print('')
                 sys.exit()
